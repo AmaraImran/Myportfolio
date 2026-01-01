@@ -1,541 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amara Imran | Portfolio</title>
 
-    <!-- --------- UNICONS ---------- -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <!-- Icons -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
-    <!-- --------- CSS ---------- -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- --------- FAVICON ---------- -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-
-    <title>Portfolio Website | Amara Imran</title>
-   <style>
-    /* Project Video Controls */
-    .project-box {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .project-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .project-content {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background: rgba(255, 255, 255, 0.95);
-        transition: all 0.3s ease;
-    }
-
-    .project-play-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 50px;
-        height: 50px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        z-index: 3;
-        opacity: 0;
-        transition: opacity 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .project-play-btn i {
-        font-size: 24px;
-        color: var(--first-color);
-    }
-
-    .project-box:hover .project-play-btn {
-        opacity: 1;
-    }
-
-    .project-box.playing .project-video {
-        opacity: 1;
-        z-index: 2;
-    }
-
-    .project-box.playing .project-content > *:not(.project-play-btn) {
-        opacity: 0;
-    }
-
-    .project-box.playing .project-play-btn i {
-        display: none;
-    }
-   
-
-  /* Fix for mobile CV button and skills section */
-/* ===== NAVBAR RESPONSIVE FIXES ===== */
-@media only screen and (max-width: 900px) {
-    /* Hide the navbar CV button completely */
-    .nav-button {
-        display: none !important;
-    }
-    
-    /* Mobile menu improvements */
-    .nav-menu {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(5px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 30px;
-        transition: 0.3s;
-        z-index: 999;
-    }
-    
-    .nav-menu.responsive {
-        left: 0;
-    }
-    
-    .nav-menulist {
-        flex-direction: column;
-        gap: 25px;
-    }
-    
-    .nav-menu-btn {
-        display: flex;
-    }
-}
-
-/* ===== SKILLS SECTION RESPONSIVE FIXES ===== */
-@media only screen and (max-width: 900px) {
-    /* Ensure skills section doesn't hide */
-    .skills-box {
-        width: 100%;
-        margin: 15px 0;
-        padding: 0 10px;
-    }
-    
-    .skills-list {
-        justify-content: center;
-        gap: 8px;
-    }
-    
-    .skills-list span {
-        font-size: 13px;
-        padding: 5px 12px;
-        margin: 2px;
-    }
-}
-
-@media only screen and (max-width: 540px) {
-    /* Further adjustments for small phones */
-    .skills-list span {
-        font-size: 12px;
-        padding: 4px 10px;
-    }
-    
-    /* Navbar adjustments */
-    .nav-name {
-        font-size: 22px;
-    }
-    
-    .nav-menu-btn i {
-        font-size: 22px;
-    }
-}
-
-
-</style>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-<div class="container">
-   
 
-    <!-- --------------- HEADER --------------- -->
-   <nav id="header">
-    <div class="nav-logo">
-        <p class="nav-name">Amara</p>
-        <span>.</span>
-    </div>
-    <div class="nav-menu" id="mynavmenu">
-        <ul class="nav-menulist">
-<li class="nav-list">
-    <a href="#home" class="nav-link">Home</a>
-    <div class="circle"></div>
-</li>
-<li class="nav-list">
-    <a href="#about" class="nav-link">About</a>
-    <div class="circle"></div>
-</li>
-<li class="nav-list">
-    <a href="#project" class="nav-link">Projects</a>
-    <div class="circle"></div>
-</li>
-<li class="nav-list">
-    <a href="#contact" class="nav-link">CONTACT</a>
-    <div class="circle"></div>
-</li>
-        </ul>
-    </div>
-    <div class="nav-button">
-  <a href="assets/Amara_imran_resume.pdf" download class="btn">
-    Download Cv <i class="uil uil-file-alt"></i>
-  </a>
-</div>
-
-    <div class="nav-menu-btn" id="nav-menu-btn">
-        <i class="uil uil-bars" onclick="MymenuFunnction()"></i>
-    </div>
+  <!-- ===== VERTICAL NAVBAR (we design next) ===== -->
+<nav class="side-nav">
+  <ul>
+    <li><a href="#home" class="active"><span>Home</span></a></li>
+    <li><a href="#about"><span>About</span></a></li>
+    <li><a href="#skills"><span>Skills</span></a></li>
+    <li><a href="#projects"><span>Projects</span></a></li>
+    <li><a href="#contact"><span>Contact</span></a></li>
+  </ul>
 </nav>
 
-        
 
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
 
-    <!-- -------------- MAIN ---------------- -->
-   
-<main class="wrapper">
-    <section class="featured-box" id="home">
-        <div class="featured-text">
-            <div class="featured-text-card">
-                <span>Amara Imran</span>
-            </div>
-            <div class="featured-name">
-                <p> i'm a <span class="typedText"></span></p>
+    <!-- HERO -->
+    <section id="home" class="section hero-clean">
+  <div class="hero-content">
 
-            </div>
-            <div class="featured-text-info">
-               <p>
-  I'm a Computer Scientist with a passion for building practical and impactful software solutions. From designing intuitive user interfaces to developing robust backend systems, I enjoy turning ideas into real-world applications.
-</p>
+    <span class="hero-tag">AVAILABLE FOR WORK</span>
 
-            </div>
-          
-       
-<!-- <div class="featured-text-btn">
-    <button class="btn blue-btn">Hire me</button>
-    <button class="btn ">Download Cv <i class="uil uil-file-alt"></i></button>
-</div> -->
-<div class="nav-button">
-  <a href="assets/Amara_imran_resume.pdf" download class="btn">
-    Download Cv <i class="uil uil-file-alt"></i>
-  </a>
-</div>
-        </div>
-        <div class="featured-image">
-            <div class="image">
-                <img src="/assets/images/myimage.png" alt="avatar">
-            </div>
-        </div>
-        <div class="scroll-icon-box">
-            <a href="#about" class="scroll-btn">
-                <i class="uil uil-mouse-alt"></i>
-                <p>Scroll Down</p>
-            </a>
-        </div>
-    </section>
-    <!-- -------------- FEATURED BOX ---------------- -->
-    
-    
+    <h1>
+      React Native & <br />
+      MERN Developer
+    </h1>
 
-       <!-- -------------- ABOUT BOX ---------------- -->
-       
-<section class="section" id="about">
-    <div class="top-header">
-        <h1>About me</h1>
+    <p>
+      I build scalable mobile and web applications <br />
+      with clean code and modern UI patterns.
+    </p>
 
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="about-info">
-                <h3>Hello, I’m Amara</h3>
-                <p> Hi I am Amara -Computer Science graduate with hands-on experience in mobile and backend development. I specialize in building cross-platform apps using React Native, and backend APIs with Node.js, Express, and databases like MongoDB, MySQL, and Firebase.
-I’ve worked on impactful projects such as a bus tracking app and an offline safe walk app. I'm currently exploring offline-first development, cloud integration, and push notifications to broaden my skillset.
-I am currently enhancing my skills in areas such as offline-first app development, cloud integration, and push notification systems. I value writing clean, efficient code and continuously seek opportunities to grow as a developer.</p>
-               
-            </div>
-        </div>
-      <div class="col">
-    <!-- Frontend Skills -->
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Frontend</h3>
-        </div>
-        <div class="skills-list">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>React Native</span>
-            <span>Bootstrap</span>
-            <span>Tailwind CSS</span>
-            <span>Expo</span>
-        </div>
-    </div>
+    <a href="#projects" class="hero-link">
+      View Projects →
+    </a>
 
-    <!-- Backend Skills -->
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Backend</h3>
-        </div>
-        <div class="skills-list">
-            <span>Node.js</span>
-            <span>Express.js</span>
-            <span>JWT</span>
-            <span>REST APIs</span>
-            <span>Firebase</span>
-            <span>MySQL</span>
-            <span>Postman</span>
-        </div>
-    </div>
-
-    <!-- Database Skills -->
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Database</h3>
-        </div>
-        <div class="skills-list">
-            <span>Firebase</span>
-            <span>SQLite</span>
-            <span>MySQL</span>
-            <span>MongoDb</span>
-
-        </div>
-    </div>
-
-    <!-- Tools & Version Control -->
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Tools</h3>
-        </div>
-        <div class="skills-list">
-            <span>Git</span>
-            <span>GitHub</span>
-            <span>VS Code</span>
-            <span>Expo Go</span>
-            <span>Postman</span>
-        </div>
-    </div>
-</div>
-
-    </div>
-</section>
-<!-- Education -->
- <section class="section" id="education">
-  <div class="top-header">
-    <h1>Education</h1>
   </div>
 
-  <div class="education-wrapper">
-    <!-- Left: Education Cards -->
-    <div class="education-list">
-      <div class="edu-card">
-        <h3>BS Computer Science</h3>
-        <p class="edu-institute">Muhammad Nawaz Sharif University of Agriculture, Multan</p>
-        <span class="edu-year">2021 – 2025</span>
-      </div>
+  <div class="hero-visual">
+    <img src="assets/images/hero.svg" alt="Developer Illustration">
+  </div>
+</section>
 
-      <div class="edu-card">
-        <h3>F.Sc. (Pre-Engineering)</h3>
-        <p class="edu-institute">Govt. Girls College, Muzaffargarh</p>
-        <span class="edu-year">2018 – 2020</span>
-      </div>
+
+    <!-- ABOUT -->
+<section id="about" class="about-section">
+  <!-- Firefly Background -->
+  <div class="firefly-container">
+    <span class="firefly"></span>
+    <span class="firefly"></span>
+    <span class="firefly"></span>
+    <span class="firefly"></span>
+    <span class="firefly"></span>
+    <span class="firefly"></span>
+    <span class="firefly"></span>
+    <span class="firefly"></span>
+  </div>
+
+  <div class="about-wrapper">
+    <!-- LEFT -->
+    <div class="about-left">
+      <h1>Hi, I’m <br /><span>Amara</span></h1>
+      <p class="about-tagline">
+        Mobile & Web Developer
+      </p>
     </div>
 
-    <!-- Right: Aesthetic Image Box -->
-    <div class="education-photo-box">
-      <img src="assets/images/university.jpg" alt="Amara Imran" class="education-photo" />
+    <!-- RIGHT -->
+    <div class="about-right">
+      <p class="about-small-title">
+        Professionally connected to software development.
+      </p>
+
+      <p>
+        I’m a detail-oriented developer who enjoys building clean,
+        scalable, and user-focused applications.
+      </p>
+
+      <p>
+        I work with React Native, modern JavaScript, backend APIs,
+        and databases to turn ideas into real products.
+      </p>
+
+      <p>
+        Outside of coding, I enjoy learning new technologies,
+        improving my problem-solving skills, and refining my craft.
+      </p>
     </div>
   </div>
 </section>
 
 
-       <!-- -------------- PROJECT BOX ---------------- -->
-<section class="section" id="project">
-    <div class="top-header">
-        <h1>Projects</h1>
-    </div>
-    <div class="project-container">
-        <!-- Project 1 -->
-        <div class="project-box">
-            <video class="project-video" src="assets/images/introduction_video.mp4" muted loop></video>
-            <div class="project-content">
-                <i class="uil uil-map-marker"></i>
-                <h3>Bus Tracking App (FYP)</h3>
-                <label>Real-time driver location, routes, vouchers, and SOS system</label>
-                <button class="project-play-btn" aria-label="Play video">
-                    <i class="uil uil-play"></i>
-                </button>
-            </div>
-        </div>
 
-        <!-- Project 2 -->
-        <div class="project-box">
-            <video class="project-video" src="assets/images/safewalk.mp4" muted loop></video>
-            <div class="project-content">
-                <i class="uil uil-shield-check"></i>
-                <h3>Offline Safe Walk App</h3>
-                <label>Offline location tracking and emergency SOS alerts</label>
-                <button class="project-play-btn" aria-label="Play video">
-                    <i class="uil uil-play"></i>
-                </button>
-            </div>
-        </div>
+    <!-- SKILLS -->
+   <section id="skills" class="skills-clean">
+  <h2 class="skills-title">Skills & Technologies</h2>
+  <p class="skills-subtitle">
+    Building modern mobile and web applications with clean, scalable code.
+  </p>
 
-        <!-- Project 3 (No video) -->
-        <div class="project-box">
-            <div class="project-content">
-                <i class="uil uil-plane-departure"></i>
-                <h3>Travel App</h3>
-                <label>Mobile app built using React Native</label>
-            </div>
-        </div>
+  <p class="skills-desc">
+    I work primarily with JavaScript-based technologies, focusing on
+    React Native for mobile apps and Node.js for backend development.
+    I enjoy creating responsive UIs, integrating APIs, and building
+    real-world projects that solve practical problems.
+  </p>
 
-        <!-- Project 4 -->
-        <div class="project-box">
-            <video class="project-video" src="assets/images/travelweb.mp4" muted loop></video>
-            <div class="project-content">
-                <i class="uil uil-browser"></i>
-                <h3>Travel Website</h3>
-                <label>PHP, HTML, CSS, JS, and MySQL-based travel platform</label>
-                <button class="project-play-btn" aria-label="Play video">
-                    <i class="uil uil-play"></i>
-                </button>
-            </div>
-        </div>
+  <div class="skills-grid">
+    <!-- Frontend -->
+    <div class="skill-item">React</div>
+    <div class="skill-item">React Native</div>
+    <div class="skill-item">JavaScript</div>
+    <div class="skill-item">HTML5</div>
+    <div class="skill-item">CSS3</div>
 
-        <!-- Project 5 -->
-        <div class="project-box">
-            <video class="project-video" src="assets/images/pizza.mp4" muted loop></video>
-            <div class="project-content">
-                <i class="uil uil-pizza-slice"></i>
-                <h3>Pizza Ordering System</h3>
-                <label>.NET C# desktop app for ordering and managing pizzas</label>
-                <button class="project-play-btn" aria-label="Play video">
-                    <i class="uil uil-play"></i>
-                </button>
-            </div>
-        </div>
+    <!-- Backend -->
+    <div class="skill-item">Node.js</div>
+    <div class="skill-item">Express</div>
+    <div class="skill-item">REST APIs</div>
 
-        <!-- Project 6 -->
-        <div class="project-box">
-            <video class="project-video" src="assets/images/blogapp.mp4" muted loop></video>
-            <div class="project-content">
-                <i class="uil uil-notebooks"></i>
-                <h3>Blog Website</h3>
-                <label>EJS, Node.js, Express, and MongoDB blog with CRUD features</label>
-                <button class="project-play-btn" aria-label="Play video">
-                    <i class="uil uil-play"></i>
-                </button>
-            </div>
-        </div>
-    </div>
+    <!-- Database -->
+    <div class="skill-item">MongoDB</div>
+    <div class="skill-item">MySQL</div>
+
+    <!-- Tools -->
+    <div class="skill-item">Git</div>
+    <div class="skill-item">GitHub</div>
+    <div class="skill-item">Postman</div>
+    <div class="skill-item">VS Code</div>
+  </div>
 </section>
 
-       
-       
-       <!-- -------------- CONTACT BOX ---------------- -->
-<section class="section" id="contact">
-  <div class="top-header">
-    <h1>Contact Me</h1>
-    <p>You can find me on the platforms below</p>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects-section">
+
+  <div class="projects-wrapper" id="projectsWrapper">
+
+    <!-- INTRO SLIDE -->
+   <div class="project-slide">
+  <div class="project-info">
+    <h2>Portfolio & Previous Projects</h2>
+    <p>
+      A collection of real-world projects including APIs, full-stack
+      applications, and frontend experiences. Scroll to explore.
+    </p>
+  </div>
+</div>
+
+
+    <!-- PROJECT 1 -->
+    <div class="project-slide">
+      <div class="project-info">
+        <h2>Subscription Tracker API</h2>
+        <p>
+          A full-stack subscription tracking system that allows users
+          to manage recurring payments, reminders, and analytics.
+        </p>
+        <div class="project-tech">
+          <span>Node.js</span>
+          <span>Express</span>
+          <span>MongoDB</span>
+        </div>
+        <a href="https://subscription-tracker-28oq.vercel.app"
+           target="_blank" class="btn small">
+          Live Project
+        </a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-slide">
+      <div class="project-info">
+        <h2>Bakery Website</h2>
+        <p>
+          A modern and responsive frontend bakery website built using
+          pure HTML, CSS, and JavaScript with clean UI design.
+        </p>
+        <div class="project-tech">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+        <a href="https://html-css-js-projects-bakery.vercel.app/"
+           target="_blank" class="btn small">
+          Live Project
+        </a>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project-slide">
+      <div class="project-info">
+        <h2>Bus Management App (FYP)</h2>
+        <p>
+          Final Year Project featuring real-time bus tracking, route
+          management, admin dashboards, and student interfaces.
+        </p>
+        <div class="project-tech">
+          <span>React Native</span>
+          <span>Node.js</span>
+          <span>MySQL</span>
+        </div>
+        <span class="coming">No live demo available</span>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="project-slide">
+      <div class="project-info">
+        <h2>E-Commerce Platform</h2>
+        <p>
+          A full-stack e-commerce system currently under development
+          with authentication, cart, and order management.
+        </p>
+        <div class="project-tech">
+          <span>MERN</span>
+          <span>JWT</span>
+          <span>Payments</span>
+        </div>
+        <span class="coming">Work in progress</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DOT INDICATOR -->
+  <div class="scroll-dots" id="scrollDots"></div>
+
+</section>
+
+
+    <!-- CONTACT -->
+   <section id="contact" class="contact-section">
+  <div class="sun-container">
+    <div class="sun"></div>
+    <div class="sun-glow"></div>
   </div>
 
   <div class="contact-container">
-    <div class="contact-box">
-      <a href="mailto:khanamara265@gmail.com" class="contact-link">
-        <i class="uil uil-envelope"></i> khanamara265@gmail.com
-      </a>
-    </div>
+    <h2>Contact Me</h2>
+    <p>
+      Let’s collaborate or talk about your next idea.
+      I’m always open to meaningful projects.
+    </p>
 
-    <div class="contact-box">
-      <a href="https://www.linkedin.com/in/amara-imran-793a62252/" target="_blank" class="contact-link">
-        <i class="uil uil-linkedin-alt"></i> amara-imran
-      </a>
-    </div>
-
-    <div class="contact-box">
-      <a href="https://github.com/AmaraImran" target="_blank" class="contact-link">
-        see my project on GitHub
-        <i class="uil uil-github-alt"></i> @AmaraImran
-      </a>
-    </div>
- <div class="contact-box">
-      <a href="https://www.facebook.com/share/16dWgcEdF3/" target="_blank" class="contact-link">
-        <i class="uil uil-facebook-f"></i> AmaraImran
-      </a>
-    </div>
+   <form class="contact-form" id="contactForm">
+  <input type="text" name="from_name" placeholder="Your Name" required />
+  <input type="email" name="from_email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message →</button>
+</form>
 
   </div>
 </section>
-<!-- footer -->
-
-
-
-
-
-
-
-
-
-<!-- ----- SCROLL REVEAL JS Link----- -->
-</div>
 <footer class="footer">
-  <p>&copy; 2025 Amara Imran. All rights reserved.</p>
-</footer>
-</main>
-<!-- ----- TYPING JS Link ----- -->
-<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <div class="footer-content">
 
-<script src="https://unpkg.com/scrollreveal"></script>
-    
-	<!-- ----- MAIN JS ----- -->
-   <script>
-   function MymenuFunnction() {
-    var navMenu = document.getElementById("mynavmenu");
-    navMenu.classList.toggle("responsive");
-    
-    /* Toggle body scroll when menu is open */
-    document.body.style.overflow = navMenu.classList.contains("responsive") ? "hidden" : "auto";
-}
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.project-play-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const projectBox = this.closest('.project-box');
-                const video = projectBox.querySelector('.project-video');
-                
-                projectBox.classList.toggle('playing');
-                
-                if (video.paused) {
-                    video.play();
-                    this.innerHTML = ''; // Remove play icon when playing
-                } else {
-                    video.pause();
-                    this.innerHTML = '<i class="uil uil-play"></i>'; // Restore play icon
-                }
-            });
-        });
-    });
-</script>
+    <p class="footer-text">
+      © 2025 Amara Imran — Built with passion & clean code
+    </p>
+
+    <div class="footer-icons">
+      <a href="https://github.com/AmaraImran" target="_blank" aria-label="GitHub">
+        <i class="uil uil-github"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/amara-imran-793a62252/" target="_blank" aria-label="LinkedIn">
+        <i class="uil uil-linkedin"></i>
+      </a>
+
+      
+    </div>
+
+  </div>
+</footer>
+
+
+  </main>
+
+  <!-- JS -->
+   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

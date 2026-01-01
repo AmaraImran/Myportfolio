@@ -1,72 +1,48 @@
-/* ----- NAVIGATION BAR FUNCTION ----- */
+(function () {
+    emailjs.init("rAq0VH083ceWyvjmi"); // ← replace this
+  })();
 
-function MymenuFunnction(){
-  var menubtn=document.getElementById("mynavmenu")
-  if(menubtn.className==="nav-menu")
-  {
-    menubtn.className+=" responsive"
-  }
-  else{
-    menubtn.className="nav-menu"
-  }
-}
-/* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
-    
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-window.onscroll=function(){headershadow()}
-function headershadow(){
-  const navheader=document.getElementById("header");
-  if(document.body.scrollTop>50 || document.documentElement.scrollTop>50){
-    navheader.style.boxShadow="0 1px 6px rgba(0, 0, 0, 0.1)";
-  navheader.style.height="70px"
-  navheader.style.lineHeight="70px"
-  }
-  else{
-    navheader.style.boxShadow="none";
-  navheader.style.height="90px"
-  navheader.style.lineHeight="90px"
-  }
-}
-/* ----- TYPING EFFECT ----- */
-   
-  const typed = new Typed(".typedText", {
-    strings: [
-      "Computer Scientist",
-      "Frontend Developer",
-      "Backend Developer",
-      "MERN Stack Developer",
-      "Tech Enthusiast"
-    ],
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 1500,
-    loop: true
+    emailjs.sendForm(
+      "service_swxp4mc",   // ← replace
+      "template_y5endqo",  // ← replace
+      this
+    ).then(
+      function () {
+        alert("Message sent successfully!");
+      },
+      function (error) {
+        alert("Failed to send message. Try again.");
+        console.error(error);
+      }
+    );
   });
 
 
 
-/* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
-   
+const wrapper = document.getElementById("projectsWrapper");
+const dotsContainer = document.getElementById("scrollDots");
+const slides = document.querySelectorAll(".project-slide");
 
-  /* -- HOME -- */
-  
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.addEventListener("click", () => {
+    wrapper.scrollTo({
+      left: i * window.innerWidth,
+      behavior: "smooth"
+    });
+  });
+  dotsContainer.appendChild(dot);
+});
 
-  /* -- PROJECT BOX -- */
-  
+const dots = dotsContainer.querySelectorAll("span");
 
-  /* -- HEADINGS -- */
-  
+wrapper.addEventListener("scroll", () => {
+  const index = Math.round(wrapper.scrollLeft / window.innerWidth);
+  dots.forEach(d => d.classList.remove("active"));
+  dots[index]?.classList.add("active");
+});
 
-/* ----- ## -- SCROLL REVEAL LEFT_RIGHT ANIMATION -- ## ----- */
-
-  /* -- ABOUT INFO & CONTACT INFO -- */
-  
-
-  /* -- ABOUT SKILLS & FORM BOX -- */
-  
-
-
-/* ----- CHANGE ACTIVE LINK ----- */
-  
-  
-   
+dots[0].classList.add("active");
