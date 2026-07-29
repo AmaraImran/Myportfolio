@@ -622,3 +622,120 @@ body {
   color: #ffffff;
   transform: translateY(-4px);
 }
+/* ===== EXPERIENCE SECTION ===== */
+.experience-section {
+  min-height: 100vh;
+  padding: 120px 10%;
+  background: #101015;
+  color: #e5e7eb;
+}
+
+.experience-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.experience-subtitle {
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.experience-item {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 36px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.experience-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.experience-header h3 {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.experience-meta {
+  font-size: 13px;
+  color: #a855f7;
+  letter-spacing: 0.4px;
+}
+
+.experience-item p {
+  opacity: 0.85;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.experience-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.experience-highlights li {
+  position: relative;
+  padding-left: 20px;
+  opacity: 0.85;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.experience-highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: #a855f7;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #a855f7;
+}
+
+@media (max-width: 700px) {
+  .experience-title { font-size: 2.2rem; }
+  .experience-item { padding: 26px; }
+}
+
+/* ===== PROJECT BUTTONS (was missing — fixes default blue link color) ===== */
+.btn.small {
+  display: inline-block;
+  background: linear-gradient(135deg, #7b5cff, #a78bfa);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn.small:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(123, 92, 255, 0.4);
+}
+
+/* ===== "COMING SOON" LABEL (was also undefined) ===== */
+.coming {
+  display: inline-block;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 10px;
+}
